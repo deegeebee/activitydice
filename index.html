@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <title>Fatigue Guide PWA</title>
+    <!-- Required for PWA function -->
+    <link rel="manifest" href="/manifest.json"> 
+    <meta name="theme-color" content="#333">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <header>
+        <h1>🧠 Fatigue Guide</h1>
+        <p>Choose your current energy state to get activity suggestions.</p>
+    </header>
+
+    <!-- -------------------- 1. Activity Entry Interface (MVP Requirement) -------------------- -->
+    <section id="activity-entry-area" class="card">
+        <h2>➕ Add New Activity</h2>
+        <form id="addActivityForm">
+            <div>
+                <label for="activityName">Activity Name:</label>
+                <input type="text" id="activityName" placeholder="E.g., Light Walk, Nap, Intense Workout" required aria-required="true">
+            </div>
+
+            <div>
+                <label for="activityCategory">Energy Category (Must Assign):</label>
+                <select id="activityCategory" required aria-required="true">
+                    <!-- Options will be populated by JS or set statically -->
+                    <option value="Red">🔴 Red (Drained)</option>
+                    <option value="Orange">🟠 Orange (Low)</option>
+                    <option value="Amber">🟡 Amber (Medium)</option>
+                    <option value="Green">🟢 Green (Good)</option>
+                </select>
+            </div>
+
+            <button type="submit" id="saveActivityButton" aria-label="Save Activity to List">Save Activity</button>
+        </form>
+    </section>
+
+    <!-- -------------------- 2. Decision Making Interface (Core Logic) -------------------- -->
+    <main id="decision-tool">
+        <h2>❓ What is your energy level RIGHT NOW?</h2>
+        <div id="colorButtonsContainer" class="button-grid">
+            <!-- Buttons injected here by JavaScript for clean styling/logic -->
+            <button data-state="Red" class="energy-button red" role="button" aria-label="Suggest activity suitable for Red/Drained energy level">🔴 RED</button>
+            <button data-state="Orange" class="energy-button orange" role="button" aria-label="Suggest activity suitable for Orange/Low energy level">🟠 ORANGE</button>
+            <button data-state="Amber" class="energy-button amber" role="button" aria-label="Suggest activity suitable for Amber/Medium energy level">🟡 AMBER</button>
+            <button data-state="Green" class="energy-button green" role="button" aria-label="Suggest activity suitable for Green/Good energy level">🟢 GREEN</button>
+        </div>
+
+        <!-- Output Area -->
+        <div id="resultDisplay" class="card mt-20">
+            <h3>Recommendation:</h3>
+            <p id="recommendationText">Click a color button above to get a suggestion.</p>
+        </div>
+
+         <!-- Optional: Display all activities for management/testing -->
+        <section id="activityListManagement" class="card mt-20">
+             <h2>📝 All Stored Activities</h2>
+             <ul id="activitiesPresent"></ul>
+         </section>
+
+    </main>
+
+    <script src="app.js"></script>
+</body>
+</html>

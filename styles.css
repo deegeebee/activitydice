@@ -1,0 +1,97 @@
+/* --- GLOBAL & ACCESSIBILITY STYLES --- */
+body {
+    font-family: sans-serif;
+    margin: 0;
+    padding: 1rem;
+    background-color: #f4f4f9;
+}
+
+header {
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+h2, h3 { margin-top: 1.5rem }
+
+/* Card styling for grouping UI elements */
+.card {
+    background: white;
+    padding: 1.5rem;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    margin-bottom: 2rem;
+}
+
+/* --- INPUT FORMS STYLES (Mobile Priority) --- */
+#addActivityForm div {
+    margin-bottom: 1rem;
+}
+
+label { display: block; margin-bottom: 0.3rem; font-weight: bold;}
+input[type="text"], select {
+    width: 100%;
+    padding: 0.75rem;
+    border-radius: 4px;
+    border: 1px solid #ccc;
+    font-size: 1rem; /* Large touch target friendly */
+}
+
+#saveActivityButton {
+    width: 100%;
+    padding: 0.9rem;
+    background-color: #28a745; /* Default Save Color */
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+/* --- DECISION BUTTON STYLES (The Core UX) --- */
+.button-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); /* Two columns on mobile */
+    gap: 1rem; 
+}
+
+.energy-button {
+    padding: 1.5rem; /* **Large touch target size** */
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: transform 0.1s ease, box-shadow 0.1s ease;
+}
+
+/* Specific Colors */
+.red { background-color: #dc3545; } /* Drained */
+.orange { background-color: #fd7e14; } /* Low */
+.amber { background-color: #ffc107; color: black;} /* Medium (Darker text for contrast) */
+.green { background-color: #28a745; } /* Good */
+
+/* Hover/Focus for keyboard navigation and touch response */
+.energy-button:hover, .energy-button:focus {
+    transform: scale(1.03);
+    box-shadow: 0 0 15px rgba(255, 255, 255, 0.7); /* Subtle glow */
+}
+
+/* --- RESULT DISPLAY --- */
+#resultDisplay p {
+    font-size: 1.3rem;
+    margin-top: 0.8rem;
+    padding: 1rem;
+    border-left: 5px solid #28a745; /* Green indicator for successful suggestion */
+}
+
+/* --- MEDIA QUERIES (For tablet/desktop viewing) --- */
+@media (min-width: 600px) {
+    .button-grid {
+        grid-template-columns: repeat(4, 1fr); /* Four columns on wider screens */
+    }
+}
+
+/* Utility Classes */
+.mt-20 { margin-top: 3rem !important; }
+
+

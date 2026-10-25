@@ -1,0 +1,21 @@
+{
+  "name": "Fatigue Guide",
+  "short_name": "FatigueGuide",
+  "description": "A fatigue-aware decision support tool.",
+  "start_url": "/index.html", 
+  "display": "standalone", 
+  "background_color": "#ffffff", 
+  "theme_color": "#28a745", 
+  "icons": [
+    {
+      "src": "icon-192x192.png", // Create simple placeholder icons!
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "icon-512x512.png", 
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ]
+}
